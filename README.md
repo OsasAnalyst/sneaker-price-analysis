@@ -104,3 +104,77 @@ This combined dataset became the backbone of the project — allowing us to comp
 Each record in the final dataset represents a unique sneaker entry with consistent fields across both sources, ensuring it’s ready for downstream analysis like pricing gaps, brand positioning, and colorway-based price segmentation.
 
 ---
+
+
+## Exploratory Data Analysis (EDA)
+
+This section dives into the insights uncovered after cleaning and merging the data from **Nike** and **Zappos**. The goal of the EDA was to understand pricing trends, platform-specific differences, and edition-level pricing behavior across sneaker models.
+
+
+### Price Distribution Across Platforms
+
+This visualization compares how Nike and Zappos distribute their sneaker prices.  
+
+- Nike’s prices are tightly clustered toward the higher end, showing the brand’s focus on premium pricing.  
+- Zappos displays a much wider price range, from affordable to high-end sneakers, appealing to a more diverse audience.  
+- Overall, Nike positions itself in the premium segment, while Zappos serves a broader retail market.
+
+![Price_Distribution_Across_Platform](https://github.com/user-attachments/assets/3972ec8a-bb7c-4bee-a4ae-cc4d56ba229f)
+
+
+---
+
+
+### Price Distribution by Platform
+
+![price_distribution_by_platform](https://github.com/user-attachments/assets/bc9ce586-1a88-431e-85a7-7b4dd5ad699d)
+
+---
+
+## Recommendations  
+
+From the analysis, it’s clear that Nike and Zappos occupy different ends of the sneaker retail spectrum.  
+Nike maintains a **premium-focused pricing strategy**, targeting customers who value exclusivity and brand appeal. Zappos, on the other hand, caters to a **broader audience**, offering a mix of budget and high-end options.  
+
+For **buyers**, Zappos is often the better choice for affordable deals. For **resellers or analysts**, Nike’s consistent premium pricing provides a benchmark for identifying sneakers that hold or increase in value.  
+Premium models like the **Air Max 97**, **Air Jordan 4 Retro**, and exclusive colorways such as **“Cave Stone and Black”** should be prioritized when assessing resale potential.  
+Differences in average prices across platforms also present clear **arbitrage opportunities** — buying from one platform at a lower rate and selling on another where prices trend higher.  
+
+---
+
+## Conclusion  
+
+This project confirms that sneaker prices differ sharply across platforms, models, and editions.  
+Nike’s strong brand positioning allows it to charge premium prices consistently, while Zappos competes through price diversity and accessibility.  
+These findings give **practical insight** into how pricing strategies affect market segmentation and how consumers, retailers, and resellers can respond.  
+In short, the analysis gives a clear picture of how value is created, distributed, and perceived in the sneaker market.  
+
+---
+
+## Limitations  
+
+While the results are meaningful, there are some boundaries to note.  
+The dataset only covers **Nike and Zappos** within the **U.S. market**, meaning the findings might differ in other regions.  
+The analysis captures prices at one point in time — without tracking **seasonal shifts**, **discounts**, or **promotions** that could alter market dynamics.  
+Additionally, missing or incomplete data for some colorways and editions may introduce slight bias in average prices.  
+These limitations highlight why continuous data collection is key for more accurate, long-term insights.  
+
+---
+
+## Future Work  
+
+There are several ways to expand this project.  
+Future iterations could include **additional resale platforms** such as **StockX** or **GOAT** to deepen comparison and calculate real-time resale premiums.
+Incorporating **time-series tracking** could reveal how sneaker prices fluctuate after release dates or during sales cycles.  
+Finally, automating **scheduled data refreshes** would allow the system to track price movements continuously and provide live insights for decision-making.  
+
+---
+
+## 🏁 Closing Remark  
+
+This project shows how data can uncover clear market insights and bridge the gap between retail strategy and consumer value.  
+
+📌 **Author:** [Osaretin Idiagbonmwen](https://www.linkedin.com/in/osaretin-idiagbonmwen-33ab85339)  
+📩 **Email:** oidiagbonmwen@gmail.com  
+
+
