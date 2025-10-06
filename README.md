@@ -32,7 +32,7 @@ This project demonstrates how automation and data analytics can reveal valuable 
 ## Data Collection
 
 The data collection stage is where we build the foundation of this sneaker price analysis project.  
-Our goal was to automatically gather up-to-date sneaker listings from **Nike** and **Zappos**, focusing on consistent product attributes that allow us to compare prices and trends across both retail platforms.
+Our goal was to automatically gather up-to-date sneaker listings from **[Nike](https://www.nike.com/)** and **[Zappos](https://www.zappos.com/)**, focusing on consistent product attributes that allow us to compare prices and trends across both retail platforms.
 
 To achieve this, we used a combination of **Requests** and **BeautifulSoup** to scrape data directly from product listing pages. Since both Nike and Zappos expose most of their product information in static HTML, this approach was efficient and reliable without needing Selenium or JavaScript rendering.
 
@@ -50,7 +50,7 @@ After collecting data from both sources, we combined them into a single structur
 
 ---
 
-### Nike Scraping
+### Nike Scraping ([Visit Nike](https://www.nike.com/))
 
 In the Nike scraping phase, we targeted a curated list of popular sneaker models such as *Air Jordan 1 Retro High*, *Air Force 1*, and *Nike Dunk Low*. The scraper uses a standardized search approach and extracts structured product details including model names, prices, images, and URLs.
 
@@ -70,11 +70,9 @@ The output was saved as a CSV file:
 nike_df.to_csv("nike_products.csv", index=False)
 ````
 
-From the run logs, Nike returned multiple results for our target sneakers — such as **Air Max 97 ($200)** and **Air Jordan 4 Retro ($190)** — confirming that our scraper was successfully capturing valid product data. Models that didn’t appear (like *Blazer Mid*) indicated temporary unavailability or catalog updates, which itself is a useful data point for availability analysis.
-
 ---
 
-### Zappos Scraping
+### Zappos Scraping ([Visit Zappos](https://www.zappos.com/))
 
 For Zappos, the approach was similar but slightly adjusted to match the site’s HTML structure.
 Each product card on Zappos includes brand, title, and price information, so our scraper extracts these values and applies another **normalization layer** to align product names with our Nike dataset.
@@ -96,8 +94,6 @@ Results were saved as:
 zappos_df.to_csv("zappos_products.csv", index=False)
 ```
 
-From our collected data, Zappos returned listings for models such as **Air Max 90 ($110)** and **Nike React Element 87 ($160)**. While fewer listings appeared compared to Nike, this variation reveals real-world availability and price positioning differences between the two platforms.
-
 ---
 
 ### Combined Dataset
@@ -108,7 +104,3 @@ This combined dataset became the backbone of the project — allowing us to comp
 Each record in the final dataset represents a unique sneaker entry with consistent fields across both sources, ensuring it’s ready for downstream analysis like pricing gaps, brand positioning, and colorway-based price segmentation.
 
 ---
-
-
-
-
