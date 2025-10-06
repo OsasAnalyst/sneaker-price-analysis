@@ -28,4 +28,87 @@ This project demonstrates how automation and data analytics can reveal valuable 
 
 ---
 
-*Built with Python, BeautifulSoup, Pandas, and Power BI — empowering smarter sneaker market analysis through data.*
+
+## Data Collection
+
+The data collection stage is where we build the foundation of this sneaker price analysis project.  
+Our goal was to automatically gather up-to-date sneaker listings from **Nike** and **Zappos**, focusing on consistent product attributes that allow us to compare prices and trends across both retail platforms.
+
+To achieve this, we used a combination of **Requests** and **BeautifulSoup** to scrape data directly from product listing pages. Since both Nike and Zappos expose most of their product information in static HTML, this approach was efficient and reliable without needing Selenium or JavaScript rendering.
+
+Across both platforms, we collected the following key fields:
+- **Brand**  
+- **Model / Product Name**  
+- **Colorway**  
+- **Release Date** (where available)  
+- **Retail Price**  
+- **Product URL**  
+- **Image URL**  
+- **Platform** (Nike or Zappos)
+
+After collecting data from both sources, we combined them into a single structured dataset — ready for cleaning, transformation, and visualization.
+
+---
+
+### Nike Scraping
+
+In the Nike scraping phase, we targeted a curated list of popular sneaker models such as *Air Jordan 1 Retro High*, *Air Force 1*, and *Nike Dunk Low*. The scraper uses a standardized search approach and extracts structured product details including model names, prices, images, and URLs.
+
+We also built a **model normalization function** to map inconsistent product titles (like “Air Jordan 1 Retro OG” or “AJ1 High”) to a clean set of standardized model names. This ensures consistency when comparing across multiple platforms.
+
+After running the scraper, each Nike product entry included:
+- Brand (Nike)
+- Standardized model name
+- Colorway (if detected)
+- Retail price (cleaned and converted)
+- Product URL
+- Image link
+- Platform (Nike)
+
+The output was saved as a CSV file:
+```python
+nike_df.to_csv("nike_products.csv", index=False)
+````
+
+From the run logs, Nike returned multiple results for our target sneakers — such as **Air Max 97 ($200)** and **Air Jordan 4 Retro ($190)** — confirming that our scraper was successfully capturing valid product data. Models that didn’t appear (like *Blazer Mid*) indicated temporary unavailability or catalog updates, which itself is a useful data point for availability analysis.
+
+---
+
+### Zappos Scraping
+
+For Zappos, the approach was similar but slightly adjusted to match the site’s HTML structure.
+Each product card on Zappos includes brand, title, and price information, so our scraper extracts these values and applies another **normalization layer** to align product names with our Nike dataset.
+
+We also introduced a **colorway extraction function** that intelligently removes generic descriptors like “shoes”, “sneakers”, or “running” to isolate the actual colorway name — e.g., “Baroque Brown and Sail”.
+
+Each Zappos listing included:
+
+* Brand (filtered for Nike)
+* Model (standardized)
+* Colorway
+* Retail price
+* Product and image URLs
+* Platform label (“Zappos”)
+
+Results were saved as:
+
+```python
+zappos_df.to_csv("zappos_products.csv", index=False)
+```
+
+From our collected data, Zappos returned listings for models such as **Air Max 90 ($110)** and **Nike React Element 87 ($160)**. While fewer listings appeared compared to Nike, this variation reveals real-world availability and price positioning differences between the two platforms.
+
+---
+
+### Combined Dataset
+
+After completing both scrapers, we merged the Nike and Zappos datasets into a single DataFrame for analysis.
+This combined dataset became the backbone of the project — allowing us to compare retail prices across platforms, evaluate how model and colorway affect pricing, and visualize patterns in Power BI.
+
+Each record in the final dataset represents a unique sneaker entry with consistent fields across both sources, ensuring it’s ready for downstream analysis like pricing gaps, brand positioning, and colorway-based price segmentation.
+
+---
+
+
+
+
